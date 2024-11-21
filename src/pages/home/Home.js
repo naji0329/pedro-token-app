@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Home(props) {
   const textArray = [
@@ -7,15 +7,41 @@ function Home(props) {
     "Thanks to Pepe's help, I will be working at McDonald's.",
   ];
 
+  // useEffect(() => {
+  //   const audio = new Audio("/assets/audios/button-50.mp3");
+
+  //   const spans = document.querySelectorAll(".text-animation span");
+  //   spans.forEach((span, index) => {
+  //     span.addEventListener("animationstart", () => {
+  //       // Play sound when animation starts for each word
+  //       audio.currentTime = 0;
+  //       audio.play();
+  //     });
+  //   });
+
+  //   // Clean up event listeners on component unmount
+  //   return () => {
+  //     spans.forEach((span) => {
+  //       span.removeEventListener("animationstart", () => {
+  //         audio.pause();
+  //       });
+  //     });
+  //   };
+  // }, []);
+
   return (
     <div>
       <div className="w-screen h-screen bg-black">
-        <div className="h-[80%] overflow-hidden flex justify-center items-center">
-          <img src="/assets/images/bg.png" alt="" className="w-screen" />
+        <div className="h-[75%] overflow-hidden flex justify-center items-center py-10">
+          <img
+            src="/assets/images/bg.png"
+            alt=""
+            className="w-full max-w-5xl m-auto "
+          />
         </div>
-        <div className="h-[20%] flex justify-start items-center p-6 text-white">
+        <div className="h-[25%] pt-4   text-white">
           <div className="max-w-5xl m-auto">
-            <p className="text-animation">
+            <div className="text-animation text-lg border  text-white p-5 ">
               {textArray.map((text, bIndex) => {
                 return (
                   <p>
@@ -42,7 +68,13 @@ function Home(props) {
                   </p>
                 );
               })}
-            </p>
+            </div>
+            {/* Button to Home */}
+            <div className="flex justify-end">
+              <button className=" text-white text-lg py-2 px-4 rounded-lg mt-4">
+                Meet Pedro
+              </button>
+            </div>
           </div>
         </div>
       </div>
