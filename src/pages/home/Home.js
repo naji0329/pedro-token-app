@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { NavLink } from "react-router";
 
 function Home(props) {
   const textArray = [
@@ -6,28 +7,6 @@ function Home(props) {
     "I am going to meet my cousin Pepe in the United States. The weather is calm and pleasant right now. ",
     "Thanks to Pepe's help, I will be working at McDonald's.",
   ];
-
-  // useEffect(() => {
-  //   const audio = new Audio("/assets/audios/button-50.mp3");
-
-  //   const spans = document.querySelectorAll(".text-animation span");
-  //   spans.forEach((span, index) => {
-  //     span.addEventListener("animationstart", () => {
-  //       // Play sound when animation starts for each word
-  //       audio.currentTime = 0;
-  //       audio.play();
-  //     });
-  //   });
-
-  //   // Clean up event listeners on component unmount
-  //   return () => {
-  //     spans.forEach((span) => {
-  //       span.removeEventListener("animationstart", () => {
-  //         audio.pause();
-  //       });
-  //     });
-  //   };
-  // }, []);
 
   return (
     <div>
@@ -39,9 +18,9 @@ function Home(props) {
             className="w-full max-w-5xl m-auto "
           />
         </div>
-        <div className="h-[25%] pt-4   text-white">
+        <div className="h-[25%] pt-4 text-white">
           <div className="max-w-5xl m-auto">
-            <div className="text-animation text-lg border  text-white p-5 ">
+            <div className="text-animation text-lg border bg-[#3D485E]/35 text-white p-5 ">
               {textArray.map((text, bIndex) => {
                 return (
                   <p>
@@ -71,9 +50,12 @@ function Home(props) {
             </div>
             {/* Button to Home */}
             <div className="flex justify-end">
-              <button className=" text-white text-lg py-2 px-4 rounded-lg mt-4">
-                Meet Pedro
-              </button>
+              {/* Go to /app page */}
+              <NavLink to="/chat">
+                <button className=" text-white text-lg py-2 px-4 rounded-lg mt-4 hover:font-bold">
+                  Meet Pedro
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
